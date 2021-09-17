@@ -13,7 +13,8 @@ var index = 0;
 
 
 $(document).keydown(startSequence);
-
+$(document).click(startSequence);
+// $(document).click(startSequence);
 
 var wrong = new Audio("sounds/wrong.mp3");
 
@@ -83,6 +84,8 @@ function blink (){
 }
 
 function startSequence(){
+   $(document).off('keydown');
+   $(document).off('click');
     interval = setInterval(blink, 1000);
   }
 
@@ -92,7 +95,7 @@ function colorCheck(color, index){
   }else{
 
     wrong.play();
-    $("h1").text("Sorry, Try Again!")
+    $("h1").text("Sorry, Try Again!");
     setTimeout(function(){
       window.location.reload();}, 600);
 
